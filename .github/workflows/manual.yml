@@ -1,0 +1,11 @@
+name: Manual Events
+on:
+  repository_dispatch:
+    types: build
+
+jobs:
+  manual-events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print hello World
+        run: echo "Hello World"
