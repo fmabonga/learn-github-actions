@@ -19,7 +19,10 @@ jobs:
       - name: Print first files
         if: ${{ steps.filter.outputs.markdown == 'true' }}
         run: |
-          for i in ${{ steps.filter.outputs.markdown_files }}
+          files=""
+          for i in `echo ${{ steps.filter.outputs.markdown_files }}``
           do
-             helm package `echo $i | awk -F / '{print $1}'`
+            files=`echo "$files $i "`
+             
           done
+          echo $files
