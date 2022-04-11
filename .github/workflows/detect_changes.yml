@@ -20,7 +20,7 @@ jobs:
         if: ${{ steps.filter.outputs.markdown == 'true' }}
         run: |
           files=""
-          for i in `echo ${{ steps.filter.outputs.markdown_files }}``
+          for i in `echo ${{ steps.filter.outputs.markdown_files }}`
           do
             files=`echo "$files $i "`
              
