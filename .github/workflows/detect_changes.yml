@@ -27,4 +27,4 @@ jobs:
       - name: Print first files
         if: ${{ steps.filter.outputs.markdown == 'true' }}
         run: |
-          echo ${{ steps.filter.outputs.markdown_files }}
+          echo ${{ steps.filter.outputs.markdown_files[0] }}
