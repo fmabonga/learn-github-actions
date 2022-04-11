@@ -22,7 +22,7 @@ jobs:
           files=""
           for i in `echo ${{ steps.filter.outputs.markdown_files }}`
           do
-            files=`echo "$files $i "`
+            files=`echo $i | awk -F / print{$1} "`
              
           done
-          echo $files
+          echo $files | uniq
