@@ -22,7 +22,8 @@ jobs:
           files=""
           for i in `echo ${{ steps.filter.outputs.markdown_files }}`
           do
-            files="$files `echo $i | awk -F / '{print $1} '`"
+            var=`echo $i | awk -F / '{print $1} '`"
+            files="$files $var"
              
           done
           arr=(`echo $files| xargs -n1 | sort -u | xargs`)
