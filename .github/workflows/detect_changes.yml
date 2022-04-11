@@ -27,8 +27,7 @@ jobs:
       - name: Print first files
         if: ${{ steps.filter.outputs.markdown == 'true' }}
         run: |
-          arr=(${{ steps.filter.outputs.markdown_files }})
-          for i in arr
+          for i in ${{ steps.filter.outputs.markdown_files }}
           do
              echo $i
           done
