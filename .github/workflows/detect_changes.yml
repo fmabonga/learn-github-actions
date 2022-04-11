@@ -20,8 +20,7 @@ jobs:
             # Therefore we specify we are only interested in added or modified files.
             filters: |
               markdown:
-                - added|modified: '**'
-                - added|modified: !'.github/**'
+                - added|modified: '!.github/**'
       - name: Print Markdown
         if: ${{ steps.filter.outputs.markdown == 'true' }}
         run: echo ${{ steps.filter.outputs.markdown_files }}
