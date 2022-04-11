@@ -25,4 +25,5 @@ jobs:
             files="$files `echo $i | awk -F / '{print $1} '`"
              
           done
-          echo $files | uniq
+          arr=(`echo $files| xargs -n1 | sort -u | xargs`)
+          echo $arr
