@@ -23,4 +23,5 @@ jobs:
               files+=" $var"
 
             done
+          files=`echo $files| xargs -n1 | sort -u | xargs`
           echo $files
