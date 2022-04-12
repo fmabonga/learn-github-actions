@@ -6,6 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Helm Installation
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.8.1
+        id: install
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -22,4 +27,4 @@ jobs:
               charts+=" `echo $i  | awk -F / '{print $1} '`"
             done
           charts=`echo $charts| xargs -n1 | sort -u | xargs`
-          echo $charts
+          echo $charts | xargs helm package
