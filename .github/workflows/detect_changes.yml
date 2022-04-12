@@ -18,17 +18,5 @@ jobs:
         run: |
           for i in ${{ steps.filter.outputs.markdown_files }}
             do 
-              echo $i 
+              echo $i  | awk -F / '{print $1} '
             done
-      - name: Print first files
-        if: ${{ steps.filter.outputs.markdown == 'true' }}
-        run: |
-          files=""
-          for i in ${{ steps.filter.outputs.markdown_files }}
-          do
-            var=`echo $i | awk -F / '{print $1} '`
-            files+=" $var"
-             
-          done
-          arr=(`echo $files| xargs -n1 | sort -u | xargs`)
-          echo $arr
