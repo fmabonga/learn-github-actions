@@ -24,8 +24,7 @@ jobs:
         if: ${{ steps.filter.outputs.markdown == 'true' }}
         run: |
           files=""
-          output=(`echo ${{steps.filter.outputs.markdown_files}}`)
-          for i in $output
+          for i in ${{ steps.filter.outputs.markdown_files }}
           do
             var=`echo $i | awk -F / '{print $1} '`
             files+=" $var"
