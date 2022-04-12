@@ -24,7 +24,7 @@ jobs:
           for i in $output
           do
             var=`echo $i | awk -F / '{print $1} '`
-            files="$files $var"
+            files+=" $var"
              
           done
           arr=(`echo $files| xargs -n1 | sort -u | xargs`)
