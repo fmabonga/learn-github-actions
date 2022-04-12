@@ -16,12 +16,10 @@ jobs:
       - name: Print Markdown
         if: ${{ steps.filter.outputs.markdown == 'true' }}
         run: |
-          files=""
+          charts=""
           for i in ${{ steps.filter.outputs.markdown_files }}
             do 
-              var=`echo $i  | awk -F / '{print $1} '`
-              files+=" $var"
-
+              charts+=" `echo $i  | awk -F / '{print $1} '`"
             done
-          files=`echo $files| xargs -n1 | sort -u | xargs`
-          echo $files
+          charts=`echo $charts| xargs -n1 | sort -u | xargs`
+          echo $charts
